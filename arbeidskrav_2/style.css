@@ -1,0 +1,34 @@
+body {
+    background-color: #E1E5EE;
+}
+
+#resources-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category-container {
+    flex-basis: calc(33% - 10px);
+    box-sizing: border-box;
+}
+
+.category-header {
+    cursor: pointer;
+}
+
+.active {
+    background-color: #fff;
+}
+
+.content-container {
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 5px;
+}

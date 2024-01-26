@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arbeidskrav 2 - TB</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <span id="resources-list"></span>
+
+    <script src="ressurser.js"></script>
+
+    <script>
+        const resourcesContainer = document.getElementById("resources-list");
+
+        for (let i = 0; i < resources.length; i++) {
+            const resource = resources[i];
+
+            const categoryContainer = document.createElement("span");
+            categoryContainer.classList.add("category-container");
+
+            const categoryHeader = document.createElement("h2");
+            categoryHeader.classList.add("category-header");
+            categoryHeader.textContent = resource.category;
+
+            const contentContainer = document.createElement("span");
+            contentContainer.classList.add("content-container");
+
+            categoryHeader.addEventListener("click", function () {
+                contentContainer.classList.toggle("active");
+            });
+
+            categoryContainer.appendChild(categoryHeader);
+            categoryContainer.appendChild(contentContainer);
+
+            const textParagraph = document.createElement("p");
+            textParagraph.textContent = resource.text;
+            contentContainer.appendChild(textParagraph);
+
+            const sourcesList = document.createElement("ul");
+
+            for (let j = 0; j < resource.sources.length; j++) {
+                const source = resource.sources[j];
+                const listItem = document.createElement("li");
+
+                const sourceLink = document.createElement("a");
+                sourceLink.href = source.url;
+                sourceLink.textContent = source.title;
+                listItem.appendChild(sourceLink);
+
+                sourcesList.appendChild(listItem);
+            }
+
+            contentContainer.appendChild(sourcesList);
+
+            resourcesContainer.appendChild(categoryContainer);
+        }
+
+    </script>
 </body>
 </html>
